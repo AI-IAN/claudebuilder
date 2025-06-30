@@ -10,9 +10,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-USER_DIR="${CLAUDE_DEV_USER:-/root/.claude-dev}"
-PROJECTS_DIR="$USER_DIR/projects"
-
+USER_DIR="/root"
 echo -e "${BLUE}🚀 ClaudeBuilder Project Creator${NC}"
 
 # Parse arguments
@@ -41,6 +39,7 @@ if [[ -z "$PROJECT_NAME" || -z "$PROJECT_TYPE" || -z "$COMPLEXITY" ]]; then
     exit 1
 fi
 
+PROJECTS_DIR="$USER_DIR/projects/${COMPLEXITY}"
 # Create project
 echo "Creating project: $PROJECT_NAME ($PROJECT_TYPE, $COMPLEXITY)"
 
